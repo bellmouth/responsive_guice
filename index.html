@@ -1,0 +1,169 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="dynamic.css"/>
+	
+
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+	<header>
+		<img src="images/itracklogo.jpg" alt="itrack logo"/>             
+	</header>
+
+	<nav>
+	  <ul>
+	  <li><a   class="color_a" href="#">Home</a></li>
+	  <li><a href="#">About</a></li>
+	  <li><a href="#">Products</a></li>
+	  <li><a href="#">Contact</a></li>
+	  </ul>
+	</nav>
+   
+		          
+        <div class="row">
+            <div class="column large-12">
+             <p>Running</p>
+              </div>
+        </div>
+        
+        <div class="row">
+            <div class="column large-12 running">
+				<img class="mainImg" src="images/runner.jpg" alt="runner"/>
+
+				<img id="opener" class="btnShow" src="images/show.jpg" alt="show"/>
+				<p class="desc hidden">This is a description of the Running image.</p>
+
+             </div>
+        </div>   
+                
+        <div class="row">
+            <div class="column large-12">
+				<p>Heart Rate</p>
+             </div>
+        </div>            
+         
+        <div class="row">
+            <div class="column large-12 heartbeat">
+				<img class="mainImg" src="images/heartbeat.jpg" alt="heart beat"/>
+				<img id="opener" class="btnShow" src="images/show.jpg" alt="show"/>
+				<p class="desc hidden">This is a description of the Heart Rate image.</p>
+            </div>
+        </div>
+                
+        <div class="row">
+            <div class="column large-12">
+				<p>Nutrition</p>
+             </div>
+        </div>
+                
+        <div class="row">
+            <div class="column large-12 nutrition">
+				<img class="mainImg" src="images/nutrition.jpg"  alt="nutrition">
+				<img id="opener" class="btnShow" src="images/show.jpg" alt="show"/>
+				<p class="desc hidden">This is a description of the Nutrition image.</p>				
+            </div>
+        </div>
+                
+        <div class="row">
+            <div class="column large-12">
+				<p>Sleep</p>
+            </div>
+        </div>            
+            
+        <div class="row">
+            <div class="column large-12 sleep">
+				<img class="mainImg" src="images/sleep.jpg" alt="sleep"/>
+				<img id="opener" class="btnShow" src="images/show.jpg" alt="show"/>
+				<p class="desc hidden">This is a description of the Sleep image.</p>				
+			</div>
+        </div>
+            
+        <div class="row">
+            <div class="column large-12">
+				<p>Live Well</p>
+            </div>
+        </div>
+                
+        <div class="row">
+            <div class="column large-12 live">
+        		<img class="mainImg" src="images/live.jpg" alt="live"/>
+				<img id="opener" class="btnShow" src="images/show.jpg" alt="show"/>
+				<p class="desc hidden">This is a description of the Live Well image.</p>				
+            </div>
+        </div> 
+
+	<footer>
+		<div class="lft_ftr">
+			<p>Get Fit and Have a Healthy Life</p>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">LifeStyle</a></li>
+				<li><a href="#">About</a></li>
+			</ul>
+		</div>
+		<div class="ctr_ftr">
+			<p>Connect With Us</p>
+			<img src="images/social.jpg" alt="social" />
+		</div>
+		<div class="rt_ftr">
+			<ul>
+				<li><span>Customer Service:</span><span>1-888-555-5555</span></li>
+				<li><span>Product Sales:</span><span>1-888-777-7777</span></li>
+				<li><span>Returns:</span><span>1-888-888-8888</span></li>
+				<li><span>Customer Service:</span><span>1-888-999-9999</span></li>
+				<li><a href="#">Contact Us</a></li>
+			</ul>
+		</div>
+		<div class="disclaimer">
+			This interactive media project was created by students for educational purposes at The Art Institute of Atlanta and is in no way intended for commercial gain or as a source of public information.
+		</div>
+		<div id="dialog" class="moreinfo"></div>
+	</footer>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+
+  <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <script>
+      $(document).foundation();
+	    $(function() {
+			$("#dialog").dialog({
+			  autoOpen: false,
+			  show: {
+				effect: "blind",
+				duration: 1000
+			  },
+			  hide: {
+				effect: "fade",
+				duration: 1000
+				}		  
+			});
+ 
+			$( ".btnShow" ).click(function() {
+				$("#dialog").text($(this).next().text());
+				$(this).toggleClass('hidden');
+	
+				 $("#dialog").position({
+					of: $( this ),
+					my: "left top",
+					at: "left top",
+					collision: "flip"
+				  });
+			  $( "#dialog" ).dialog( "open" );
+			});
+				$( "#dialog" ).dialog({beforeClose:function(event,ui){
+				$(".btnShow").each( function(){
+					if($(this).prop('class').indexOf('hidden') > -1){
+						$(this).toggleClass('hidden');
+					}
+				});
+				}});
+  });
+
+    </script>
+	
+  </body>
+</html>
